@@ -12,6 +12,7 @@ void main() {
     options: SegmentConfig(
       writeKey: 'YOUR_WRITE_KEY_GOES_HERE',
       trackApplicationLifecycleEvents: false,
+      firebaseIntegrationEnabled: true,
     ),
   );
 
