@@ -10,7 +10,6 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
-        classpath 'com.google.gms:google-services:3.1.0'
     }
 }
 
@@ -46,4 +45,3 @@ android {
 dependencies {
     testImplementation 'junit:junit:4.12'
 }
-apply plugin: 'com.google.gms.google-services'
