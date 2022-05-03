@@ -4,6 +4,7 @@
 #import <Segment/SEGContext.h>
 #import <Segment/SEGMiddleware.h>
 #import <Segment_Amplitude/SEGAmplitudeIntegrationFactory.h>
+#import <Segment-Firebase/SEGFirebaseIntegrationFactory.h>
 
 @implementation FlutterSegmentPlugin
 // Contents to be appended to the context
@@ -366,6 +367,7 @@ static BOOL wasSetupFromFile = NO;
     BOOL trackApplicationLifecycleEvents = [[dict objectForKey: @"trackApplicationLifecycleEvents"] boolValue];
     BOOL isAmplitudeIntegrationEnabled = [[dict objectForKey: @"amplitudeIntegrationEnabled"] boolValue];
     BOOL isAppsflyerIntegrationEnabled = [[dict objectForKey: @"appsflyerIntegrationEnabled"] boolValue];
+    BOOL isFirebaseIntegrationEnabled = [[dict objectForKey: @"firebaseIntegrationEnabled"] boolValue];
     SEGAnalyticsConfiguration *configuration = [SEGAnalyticsConfiguration configurationWithWriteKey:writeKey];
     configuration.trackApplicationLifecycleEvents = trackApplicationLifecycleEvents;
 
@@ -375,6 +377,10 @@ static BOOL wasSetupFromFile = NO;
 
     if (isAppsflyerIntegrationEnabled) {
       [configuration use:[SEGAppsFlyerIntegrationFactory instance]];
+    }
+
+    if (isFirebaseIntegrationEnabled) {
+            [config use:[SEGFirebaseIntegrationFactory instance]];
     }
 
     return configuration;
