@@ -16,6 +16,7 @@ import com.segment.analytics.Middleware;
 import com.segment.analytics.integrations.BasePayload;
 import com.segment.analytics.android.integrations.amplitude.AmplitudeIntegration;
 import com.segment.analytics.android.integrations.appsflyer.AppsflyerIntegration;
+import com.segment.analytics.android.integrations.firebase.FirebaseIntegration;
 import static com.segment.analytics.Analytics.LogLevel;
 
 import java.util.LinkedHashMap;
@@ -90,6 +91,10 @@ public class FlutterSegmentPlugin implements MethodCallHandler, FlutterPlugin {
 
       if (options.isAppsflyerIntegrationEnabled()) {
         analyticsBuilder.use(AppsflyerIntegration.FACTORY);
+      }
+
+      if(options.isFirebaseIntegrationEnabled()) {
+        analyticsBuilder.use(FirebaseIntegration.FACTORY);
       }
 
       // Here we build a middleware that just appends data to the current context

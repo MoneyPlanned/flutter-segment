@@ -17,6 +17,7 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://maven.google.com' }
     }
 }
 
@@ -37,6 +38,7 @@ android {
         implementation 'com.segment.analytics.android:analytics:4.10.0'
         implementation 'com.segment.analytics.android.integrations:amplitude:3.0.3'
         implementation 'com.appsflyer:segment-android-integration:6.5.2'
+        implementation 'com.segment.analytics.android.integrations:firebase:+@aar'
     }
 }
 
