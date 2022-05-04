@@ -13,6 +13,7 @@ void main() {
       writeKey: 'YOUR_WRITE_KEY_GOES_HERE',
       trackApplicationLifecycleEvents: false,
       firebaseIntegrationEnabled: true,
+      branchIoIntegrationEnabled: true
     ),
   );
 
