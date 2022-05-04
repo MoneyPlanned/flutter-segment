@@ -13,6 +13,7 @@ import com.segment.analytics.Properties;
 import com.segment.analytics.Traits;
 import com.segment.analytics.Options;
 import com.segment.analytics.Middleware;
+import com.segment.analytics.android.integrations.branch.BranchIntegration;
 import com.segment.analytics.integrations.BasePayload;
 import com.segment.analytics.android.integrations.amplitude.AmplitudeIntegration;
 import com.segment.analytics.android.integrations.appsflyer.AppsflyerIntegration;
@@ -95,6 +96,10 @@ public class FlutterSegmentPlugin implements MethodCallHandler, FlutterPlugin {
 
       if(options.isFirebaseIntegrationEnabled()) {
         analyticsBuilder.use(FirebaseIntegration.FACTORY);
+      }
+
+      if(options.isBranchIoIntegrationEnabled()) {
+        analyticsBuilder.use(BranchIntegration.FACTORY);
       }
 
       // Here we build a middleware that just appends data to the current context
