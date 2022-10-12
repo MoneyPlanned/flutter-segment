@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_segment'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'A new flutter plugin project.'
   s.description      = <<-DESC
 A new flutter plugin project.
@@ -18,7 +18,7 @@ A new flutter plugin project.
   s.dependency 'Analytics', '4.1.6'
   s.dependency 'Segment-Amplitude', '3.3.2'
   s.dependency 'segment-appsflyer-ios', '6.5.2'
-  s.dependency 'Segment-Firebase', '2.7.9'
+  s.dependency 'Segment-Firebase', '2.7.10'
   s.ios.deployment_target = '11.0'
 
   # Added because Segment-Amplitude dependencies on iOS cause this error:
