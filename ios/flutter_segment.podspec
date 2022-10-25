@@ -19,7 +19,7 @@ A new flutter plugin project.
   s.dependency 'Segment-Amplitude', '3.3.2'
   s.dependency 'segment-appsflyer-ios', '6.8.1'
   s.dependency 'Segment-Firebase', '2.7.11'
-  s.dependency 'Segment-CleverTap', '1.2.3'
+  s.dependency 'Segment-CleverTap', '1.2.2'
   s.ios.deployment_target = '11.0'
 
   # Added because Segment-Amplitude dependencies on iOS cause this error:
