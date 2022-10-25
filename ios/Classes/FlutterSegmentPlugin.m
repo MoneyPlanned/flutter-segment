@@ -5,6 +5,7 @@
 #import <Segment/SEGMiddleware.h>
 #import <Segment_Amplitude/SEGAmplitudeIntegrationFactory.h>
 #import <Segment_Firebase/SEGFirebaseIntegrationFactory.h>
+#import <Segment-CleverTap/SEGCleverTapIntegrationFactory.h>
 
 @implementation FlutterSegmentPlugin
 // Contents to be appended to the context
@@ -350,6 +351,7 @@ static BOOL wasSetupFromFile = NO;
     BOOL trackApplicationLifecycleEvents = [[dict objectForKey: @"com.claimsforce.segment.TRACK_APPLICATION_LIFECYCLE_EVENTS"] boolValue];
     BOOL isAmplitudeIntegrationEnabled = [[dict objectForKey: @"com.claimsforce.segment.ENABLE_AMPLITUDE_INTEGRATION"] boolValue];
     BOOL isFirebaseIntegrationEnabled = [[dict objectForKey: @"com.claimsforce.segment.ENABLE_FIREBASE_INTEGRATION"] boolValue];
+    BOOL isCleverTapIntegrationEnabled = [[dict objectForKey: @"com.claimsforce.segment.ENABLE_CLEVERTAP_INTEGRATION"] boolValue];
     if(!writeKey) {
         return nil;
     }
@@ -364,6 +366,9 @@ static BOOL wasSetupFromFile = NO;
             [configuration use:[SEGFirebaseIntegrationFactory instance]];
     }
 
+    if (isCleverTapIntegrationEnabled) {
+        [configuration use:[SEGCleverTapFactory instance]];
+    }
     return configuration;
 }
 
@@ -373,6 +378,7 @@ static BOOL wasSetupFromFile = NO;
     BOOL isAmplitudeIntegrationEnabled = [[dict objectForKey: @"amplitudeIntegrationEnabled"] boolValue];
     BOOL isAppsflyerIntegrationEnabled = [[dict objectForKey: @"appsflyerIntegrationEnabled"] boolValue];
     BOOL isFirebaseIntegrationEnabled = [[dict objectForKey: @"firebaseIntegrationEnabled"] boolValue];
+    BOOL isCleverTapIntegrationEnabled = [[dict objectForKey: @"cleverTapIntegrationEnabled"] boolValue];
     SEGAnalyticsConfiguration *configuration = [SEGAnalyticsConfiguration configurationWithWriteKey:writeKey];
     configuration.trackApplicationLifecycleEvents = trackApplicationLifecycleEvents;
 
@@ -388,6 +394,9 @@ static BOOL wasSetupFromFile = NO;
             [configuration use:[SEGFirebaseIntegrationFactory instance]];
     }
 
+    if (isCleverTapIntegrationEnabled) {
+            [configuration use:[SEGCleverTapFactory instance]];
+        }
     return configuration;
 }
 

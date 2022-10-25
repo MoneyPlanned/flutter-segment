@@ -5,6 +5,7 @@ class SegmentConfig {
     this.amplitudeIntegrationEnabled = false,
     this.appsflyerIntegrationEnabled = false,
     this.firebaseIntegrationEnabled = false,
+    this.cleverTapIntegrationEnabled = false,
     this.debug = false,
   });
 
@@ -13,6 +14,7 @@ class SegmentConfig {
   final bool amplitudeIntegrationEnabled;
   final bool appsflyerIntegrationEnabled;
   final bool firebaseIntegrationEnabled;
+  final bool cleverTapIntegrationEnabled;
   final bool debug;
 
   Map<String, dynamic> toMap() {
@@ -21,7 +23,8 @@ class SegmentConfig {
       'trackApplicationLifecycleEvents': trackApplicationLifecycleEvents,
       'amplitudeIntegrationEnabled': amplitudeIntegrationEnabled,
       'appsflyerIntegrationEnabled': appsflyerIntegrationEnabled,
-      'firebaseIntegrationEnabled':firebaseIntegrationEnabled,
+      'firebaseIntegrationEnabled': firebaseIntegrationEnabled,
+      'cleverTapIntegrationEnabled': cleverTapIntegrationEnabled,
       'debug': debug,
     };
   }

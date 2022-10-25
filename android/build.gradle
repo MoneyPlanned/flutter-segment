@@ -39,6 +39,7 @@ android {
         implementation 'com.segment.analytics.android.integrations:amplitude:3.0.3'
         implementation 'com.appsflyer:segment-android-integration:6.5.2'
         implementation 'com.segment.analytics.android.integrations:firebase:+@aar'
+        implementation 'com.clevertap.android:clevertap-segment-android:+'
     }
 }
 
