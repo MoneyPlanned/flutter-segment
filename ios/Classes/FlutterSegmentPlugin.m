@@ -5,7 +5,7 @@
 #import <Segment/SEGMiddleware.h>
 #import <Segment_Amplitude/SEGAmplitudeIntegrationFactory.h>
 #import <Segment_Firebase/SEGFirebaseIntegrationFactory.h>
-#import <Segment-CleverTap/SEGCleverTapIntegrationFactory.h>
+#import <Segment_CleverTap/SEGCleverTapIntegrationFactory.h>
 
 @implementation FlutterSegmentPlugin
 // Contents to be appended to the context
@@ -367,7 +367,7 @@ static BOOL wasSetupFromFile = NO;
     }
 
     if (isCleverTapIntegrationEnabled) {
-        [configuration use:[SEGCleverTapFactory instance]];
+        [configuration use:[SEGCleverTapIntegrationFactory instance]];
     }
     return configuration;
 }
@@ -395,7 +395,7 @@ static BOOL wasSetupFromFile = NO;
     }
 
     if (isCleverTapIntegrationEnabled) {
-            [configuration use:[SEGCleverTapFactory instance]];
+            [configuration use:[SEGCleverTapIntegrationFactory instance]];
         }
     return configuration;
 }
