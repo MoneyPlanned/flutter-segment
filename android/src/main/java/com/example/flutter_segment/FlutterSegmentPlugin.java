@@ -17,6 +17,7 @@ import com.segment.analytics.integrations.BasePayload;
 import com.segment.analytics.android.integrations.amplitude.AmplitudeIntegration;
 import com.segment.analytics.android.integrations.appsflyer.AppsflyerIntegration;
 import com.segment.analytics.android.integrations.firebase.FirebaseIntegration;
+import com.segment.analytics.android.integrations.clevertap.CleverTapIntegration;
 import static com.segment.analytics.Analytics.LogLevel;
 
 import java.util.LinkedHashMap;
@@ -97,6 +98,9 @@ public class FlutterSegmentPlugin implements MethodCallHandler, FlutterPlugin {
         analyticsBuilder.use(FirebaseIntegration.FACTORY);
       }
 
+      if(options.isCleverTapIntegrationEnabled()) {
+        analyticsBuilder.use(CleverTapIntegration.FACTORY);
+      }
       // Here we build a middleware that just appends data to the current context
       // using the [deepMerge] strategy.
       analyticsBuilder.middleware(

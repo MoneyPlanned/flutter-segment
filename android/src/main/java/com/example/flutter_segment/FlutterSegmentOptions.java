@@ -10,6 +10,7 @@ public class FlutterSegmentOptions {
     private final Boolean amplitudeIntegrationEnabled;
     private final Boolean appsflyerIntegrationEnabled;
     private final Boolean firebaseIntegrationEnabled;
+    private final Boolean cleverTapIntegrationEnabled;
     private final Boolean debug;
 
     public  FlutterSegmentOptions(
@@ -18,6 +19,7 @@ public class FlutterSegmentOptions {
             Boolean amplitudeIntegrationEnabled,
             Boolean appsflyerIntegrationEnabled,
             Boolean firebaseIntegrationEnabled,
+            Boolean cleverTapIntegrationEnabled,
             Boolean debug
     ) {
         this.writeKey = writeKey;
@@ -25,6 +27,7 @@ public class FlutterSegmentOptions {
         this.amplitudeIntegrationEnabled = amplitudeIntegrationEnabled;
         this.appsflyerIntegrationEnabled = appsflyerIntegrationEnabled;
         this.firebaseIntegrationEnabled = firebaseIntegrationEnabled;
+        this.cleverTapIntegrationEnabled = cleverTapIntegrationEnabled;
         this.debug = debug;
     }
 
@@ -46,6 +49,8 @@ public class FlutterSegmentOptions {
 
     public Boolean isFirebaseIntegrationEnabled() { return  firebaseIntegrationEnabled; }
 
+    public Boolean isCleverTapIntegrationEnabled() { return  cleverTapIntegrationEnabled; }
+
     public Boolean getDebug() {
         return debug;
     }
@@ -56,8 +61,9 @@ public class FlutterSegmentOptions {
         Boolean isAmplitudeIntegrationEnabled = bundle.getBoolean("com.claimsforce.segment.ENABLE_AMPLITUDE_INTEGRATION", false);
         Boolean isAppsflyerIntegrationEnabled = bundle.getBoolean("com.claimsforce.segment.ENABLE_APPSFLYER_INTEGRATION", false);
         Boolean isFirebaseIntegrationEnabled = bundle.getBoolean("com.claimsforce.segment.ENABLE_FIREBASE_INTEGRATION", false);
+        Boolean isCleverTapIntegrationEnabled = bundle.getBoolean("com.claimsforce.segment.ENABLE_CLEVERTAP_INTEGRATION", false);
         Boolean debug = bundle.getBoolean("com.claimsforce.segment.DEBUG", false);
-        return new FlutterSegmentOptions(writeKey, trackApplicationLifecycleEvents, isAmplitudeIntegrationEnabled, isAppsflyerIntegrationEnabled, isFirebaseIntegrationEnabled, debug);
+        return new FlutterSegmentOptions(writeKey, trackApplicationLifecycleEvents, isAmplitudeIntegrationEnabled, isAppsflyerIntegrationEnabled, isFirebaseIntegrationEnabled, isCleverTapIntegrationEnabled, debug);
     }
 
     static FlutterSegmentOptions create(HashMap<String, Object> options) {
@@ -66,8 +72,9 @@ public class FlutterSegmentOptions {
         Boolean isAmplitudeIntegrationEnabled = orFalse((Boolean) options.get("amplitudeIntegrationEnabled"));
         Boolean isAppsflyerIntegrationEnabled = orFalse((Boolean) options.get("appsflyerIntegrationEnabled"));
         Boolean isFirebaseIntegrationEnabled = orFalse((Boolean) options.get("firebaseIntegrationEnabled"));
+        Boolean isCleverTapIntegrationEnabled = orFalse((Boolean) options.get("cleverTapIntegrationEnabled"));
         Boolean debug = orFalse((Boolean) options.get("debug"));
-        return new FlutterSegmentOptions(writeKey, trackApplicationLifecycleEvents, isAmplitudeIntegrationEnabled, isAppsflyerIntegrationEnabled, isFirebaseIntegrationEnabled, debug);
+        return new FlutterSegmentOptions(writeKey, trackApplicationLifecycleEvents, isAmplitudeIntegrationEnabled, isAppsflyerIntegrationEnabled, isFirebaseIntegrationEnabled, isCleverTapIntegrationEnabled, debug);
     }
 
     private static Boolean orFalse(Boolean value) {
